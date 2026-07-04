@@ -132,11 +132,11 @@ curl -H "X-API-Key: YOUR_KEY" http://starwatch-pi.local:8787/status
 
 Goal: processed images on the Samsung TV without manual copying.
 
-TV is on the network at **192.168.100.70** (media) and **192.168.100.6** (control, dormant until IP Remote wakes it).
+TV is on the network at **192.168.100.6** (control, when on) and **192.168.100.70** (media/DLNA).
 
-- [ ] On TV: Settings → General → External Device Manager → **IP Remote ON**
 - [ ] Enable SMB or Jellyfin on Pi (1TB NVMe has room)
-- [ ] Point TV at `//starwatch-pi/captures` via Source → Media Server (use **.70**)
+- [ ] Point TV at `//starwatch-pi/captures` via Source → Media Server (use **.70** for browse)
+- [ ] Agent TV control via REST at **.6:8001** (power, apps, slideshow trigger)
 - [ ] Agent save path: `captures/` → nightly sync to share
 - [ ] Ask Grok to finish TV share wiring once Pi share is live
 

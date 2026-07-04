@@ -1,37 +1,37 @@
 # TV Setup — Samsung QN83S95F
 
-## Identified addresses
+## Identified addresses (TV on — 2026-07-04)
 
-| IP | Role | Status (2026-07-04) |
-|----|------|---------------------|
-| **192.168.100.70** | **Data / media** (active) | Responds to ping; hostname `samsung.localdomain` |
-| **192.168.100.6** | **Control** (likely) | Unreachable — dormant or secondary interface |
+| IP | Role | MAC | When awake |
+|----|------|-----|------------|
+| **192.168.100.6** | **Control** | `38:8c:ef:fa:14:2a` (WiFi) | 8001, 8002, 8080, 9197 |
+| **192.168.100.70** | **Data / media** | `38:8c:ef:47:f4:3b` | 8080 only |
 
-### 192.168.100.70 — active interface
+Two separate Samsung interfaces — not a stale lease. When the TV is **off**, `.6` goes dark and only `.70` may linger with partial services.
+
+### 192.168.100.6 — control (primary when on)
 
 | Field | Value |
 |-------|-------|
-| Hostname | `samsung.localdomain` |
-| MAC | `38:8c:ef:47:f4:3b` (Samsung Electronics) |
-| Open port | **8080** (Samsung `WebServer` — media/DLNA stack) |
-| Port 8001 | Closed (remote control API not enabled yet) |
+| Hostname | `Samsung.localdomain` |
+| API | `http://192.168.100.6:8001/api/v2/` |
+| OS | Tizen, PowerState `on` |
+| Network | WiFi (`networkType: wireless`) |
+| DUID | `uuid:b90ea709-f847-4969-877f-8fa2a85b4b8f` |
 
-Samsung TVs commonly expose:
+Samsung REST API responds here — remote control, app launch, power state. Use **.6** for agent automation.
 
-- **8080** — DLNA / AllShare / media serving (browsing photos & video from network shares)
-- **8001** — REST remote control API (sleeps until *IP Remote* is enabled in TV settings)
+> API `modelName` reports `QN65S95FAFXZA` (Samsung quirk); physical unit is **QN83S95F** per owner.
 
-Use **.70** for media share mounting and slideshow. Use **.6** for control once it wakes — many Samsung sets register a second address for SmartThings / IP-remote that only appears when the control stack is active.
+### 192.168.100.70 — data / media (secondary)
 
-### 192.168.100.6 — secondary / control
+| Field | Value |
+|-------|-------|
+| Hostname | *(none — no reverse DNS)* |
+| Open port | **8080** (`WebServer` — DLNA/media) |
+| Port 8001 | Closed |
 
-- Does not respond to ping or TCP on common ports (8001, 8080, 9197, 55000) while TV is in current state
-- Still listed in router — likely:
-  - Secondary WiFi/control interface that sleeps independently, or
-  - Stale lease from a prior connection (TV may have moved to .70), or
-  - Ethernet interface (inactive unless cabled)
-
-**Action:** Check UniFi client list for both IPs on the same MAC. If same MAC → dual-interface TV. If different MAC → two entries, one stale.
+Use **.70** for DLNA media browse and network share slideshow. No REST control API on this interface.
 
 ---
 
@@ -42,31 +42,20 @@ Browse astro images captured by Starwatch from the living room TV without manual
 ## Planned approach
 
 1. **SMB share** on Pi (`/home/pi/captures`) or home NAS/DGX
-2. **Samsung TV** at **192.168.100.70** — Source → PC / Media Server, or Gallery app
-3. Optional **Jellyfin** on Pi for polished slideshow / metadata
-
-Control automation (volume, input, power) can target **.6** once IP Remote is enabled and that address responds.
-
----
-
-## Enable before media test
-
-On the TV (Settings → General → External Device Manager):
-
-- [ ] **IP Remote** — ON (opens port 8001 on active interface; may wake .6)
-- [ ] **Device Connect Manager** — allow phone/PC connections
-- [ ] Note which IP answers on port 8001 after enabling (re-scan)
+2. **Samsung TV** — Source → PC / Media Server (try **.70** first for DLNA; **.6** if share requires Smart Hub path)
+3. Optional **Jellyfin** on Pi — install Samsung Jellyfin app, point at Pi server
+4. **Agent control** (power, input, slideshow trigger) via REST on **.6:8001**
 
 ---
 
 ## Starwatch integration checklist
 
-- [ ] Rescan both IPs after IP Remote enabled
-- [ ] Confirm which IP serves SMB/DLNA browse (expect .70)
+- [x] Rescan with TV on — roles confirmed
 - [ ] Stand up SMB on Pi: `//starwatch-pi/captures`
 - [ ] Add share on TV: Source → Media Server / PC
-- [ ] Drop test JPEG; verify Gallery / slideshow
-- [ ] (Optional) Jellyfin with TV app
+- [ ] Drop test JPEG; verify Gallery / slideshow on 83" panel
+- [ ] (Optional) Jellyfin server + Samsung TV app
+- [ ] (Optional) Wire `StarwatchAgentClient` to TV REST for "show tonight's captures"
 
 ---
 
@@ -75,8 +64,8 @@ On the TV (Settings → General → External Device Manager):
 | Field | Value |
 |-------|-------|
 | TV model | Samsung QN83S95F (S95F OLED, 83") |
-| Data IP | `192.168.100.70` (`samsung.local`) |
-| Control IP | `192.168.100.6` (pending — rescan) |
+| Control IP | `192.168.100.6` (`Samsung.local`) |
+| Data IP | `192.168.100.70` |
 | Home subnet | `192.168.100.0/24` |
 | Gateway | `192.168.100.1` (UniFi) |
 | Share host | Pi or DGX — *TBD when Pi arrives* |
@@ -86,8 +75,6 @@ On the TV (Settings → General → External Device Manager):
 
 ## Rescan command (for agents)
 
-When TV settings change, re-probe:
-
 ```bash
 for ip in 192.168.100.6 192.168.100.70; do
   echo "=== $ip ==="
@@ -95,4 +82,7 @@ for ip in 192.168.100.6 192.168.100.70; do
   nc -z -G 2 $ip 8001 && echo "8001 open (control)"
   nc -z -G 2 $ip 8080 && echo "8080 open (media)"
 done
+curl -s http://192.168.100.6:8001/api/v2/ | python3 -m json.tool | head -20
 ```
+
+Expect `.6` dark when TV is off; `.70` may still answer on 8080.
