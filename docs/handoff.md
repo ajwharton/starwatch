@@ -41,7 +41,8 @@ When the Pi 5 kit arrives, Andrew handles hardware + OS; Grok handles everything
 | Pi on same LAN as Mac (`192.168.100.x`) | SSH + API tests from indoors |
 | SSH access | Grok runs all configuration remotely |
 | StellarMate OS (not plain Raspberry Pi OS) | INDI/Ekos pre-baked |
-| Optional: USB to hand controller | Needed for scope tests, not for Starwatch install |
+| USB-A → Mini-USB cable (1–3 ft) | Scope tests — see `cables-and-power.md` |
+| 27W USB-C PD PSU (if not in kit) | Pi power |
 
 ## Access patterns that work
 
