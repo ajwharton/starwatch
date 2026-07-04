@@ -1,6 +1,8 @@
 # Cables & Power — Shopping Guide
 
-Parts to have on hand before first light. Scope: [NexStar Evolution 9.25 (12092)](evolution-925.md) — **does not include a PC USB cable**. **Send a photo of the hand controller bottom port** to confirm Mini-USB before ordering.
+Parts to have on hand before first light. Scope: [NexStar Evolution 9.25 (12092)](evolution-925.md) — **does not include a PC USB cable**.
+
+**Photo confirmed (2026-07-04):** hand controller edge port with USB symbol is **Mini-USB (Mini-B)**. Mount **AUX1/AUX2** are *not* PC ports — do not use for Pi.
 
 ---
 
@@ -111,10 +113,14 @@ Share the scope's **12V** astro battery:
 
 ---
 
-## Photo confirmation
+## Photo confirmation ✓
 
-When you send a picture of the telescope USB port, we'll confirm:
+From owner photos of Evolution 9.25 (12092):
 
-1. Mini-USB vs Micro-USB vs other
-2. Which side is **bottom PC port** vs top phone dock (use **bottom only**)
-3. Cable routing with the GeeekPi case placement
+| Photo | What it shows | Pi connection? |
+|-------|---------------|----------------|
+| Hand controller edge | **Mini-USB** + USB symbol — PC port | **Yes — cable goes here** |
+| Mount side AUX1/AUX2 | Celestron accessory ports (hand control cable) | **No** |
+| Full rig | Hand controller docked on mount arm | Route short cable to Mini-USB on paddle |
+
+Cable routing: Pi near mount base; 1–2 ft USB-A → Mini-USB to the port shown on the hand paddle (may need to tilt/unclip paddle slightly for plug clearance).

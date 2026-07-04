@@ -87,6 +87,12 @@ Pi 5 (GeeekPi case)                    NexStar Evolution 9.25
 
 ---
 
-## Photo still helpful
+## Ports — photo confirmed
 
-Send a picture of the **bottom edge of the NexStar+ hand paddle** before ordering the cable — we expect Mini-USB and will confirm in one glance.
+| Port | Location | Use for Starwatch? |
+|------|----------|-------------------|
+| **Mini-USB** (USB symbol) | Edge of NexStar+ hand paddle | **Yes** — Pi USB-A → Mini-USB |
+| **AUX1 / AUX2** | Mount side panel | No — hand controller & accessories only |
+| Phone charge USB | Mount arm (if present) | No — charging only |
+
+Hand controller can stay docked; use a **short, right-angle Mini-USB** plug if straight connector is tight against the mount.
