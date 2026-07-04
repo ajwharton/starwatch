@@ -1,0 +1,18 @@
+# Starwatch configuration — copy to Pi and adjust for your network.
+
+mode: mock  # mock | indi — use indi on Pi/StellarMate
+
+indi:
+  host: localhost
+  port: 7624
+  device_name: "Celestron AUX"
+
+telescope:
+  model: "NexStar Evolution 9.25"
+  connection: usb  # short USB cable to hand controller
+  slew_rate: medium
+
+server:
+  host: 0.0.0.0
+  port: 8787
+  api_key: null  # set a secret for agent access over WiFi
