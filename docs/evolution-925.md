@@ -87,6 +87,10 @@ Pi 5 (GeeekPi case)                    NexStar Evolution 9.25
 
 ---
 
+## Imaging
+
+$700 all-in kit (80D + f/6.3 reducer + adapters): [`imaging-kit-700.md`](imaging-kit-700.md). Keep NEX-6 for planetary.
+
 ## Ports — photo confirmed
 
 | Port | Location | Use for Starwatch? |
