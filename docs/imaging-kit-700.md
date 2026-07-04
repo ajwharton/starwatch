@@ -109,9 +109,8 @@ If 6D Mark II is **$100+ more** than 80D in the listing you found, 80D still fit
 
 ## Order list (copy/paste)
 
-1. Used **Canon EOS 6D Mark II** body (not original 6D)  
+1. ~~Used **Canon EOS 6D Mark II** body~~ — **purchased** (eBay #505)  
 2. Celestron **f/6.3 Focal Reducer/Corrector** (#94163)  
 3. Celestron **T-Adapter for SCT** (#93633)  
 4. Celestron **T-Ring Canon EF** (#93419)  
-5. LP-E6N spare battery (optional at checkout)  
-6. Sony **E-mount T-ring** for NEX-6 ($25)
+5. LP-E6N spare battery (optional)
