@@ -130,15 +130,16 @@ See `docs/tv-setup.md`.
 
 ---
 
-## 10. Cables & Adapters to Buy If Missing
+## 10. Cables & Power to Buy If Missing
 
-| Item | Why |
-|------|-----|
-| Short USB-A → Micro-USB or USB-B | Hand controller port (verify yours before buying) |
-| USB-C PD 27W supply + cable | Pi dedicated power |
-| 12V → 5V/5A USB-C PD buck | Optional shared astro battery power |
-| USB NVMe enclosure | Flash SSD from Mac before first Pi boot |
-| Short outdoor-rated Ethernet | WiFi fallback |
+See **[`docs/cables-and-power.md`](cables-and-power.md)** for full detail.
+
+| Item | What to buy |
+|------|-------------|
+| Scope USB | **USB-A to Mini-USB**, 1–3 ft, data cable (confirm with photo) |
+| Pi power | **27W USB-C PD** — official Raspberry Pi PSU or kit-included |
+| Flash helper | USB NVMe enclosure (one-time, for Mac flashing) |
+| Later | 12V → 5V/5A USB-C PD buck if sharing scope battery |
 
 ---
 
