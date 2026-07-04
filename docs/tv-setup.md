@@ -1,4 +1,4 @@
-# TV Setup — Samsung QN65S90FAFXZA
+# TV Setup — Samsung QN83S95F
 
 ## Identified addresses
 
@@ -74,7 +74,7 @@ On the TV (Settings → General → External Device Manager):
 
 | Field | Value |
 |-------|-------|
-| TV model | Samsung QN65S90FAFXZA (S90F OLED) |
+| TV model | Samsung QN83S95F (S95F OLED, 83") |
 | Data IP | `192.168.100.70` (`samsung.local`) |
 | Control IP | `192.168.100.6` (pending — rescan) |
 | Home subnet | `192.168.100.0/24` |
