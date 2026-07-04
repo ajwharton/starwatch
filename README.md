@@ -51,6 +51,8 @@ curl http://localhost:8787/health
 
 ## Pi Deployment (when hardware arrives)
 
+**Start here:** [`docs/arrival-checklist.md`](docs/arrival-checklist.md) — assembly, power, first boot, agent slew.
+
 1. Flash **StellarMate OS** to NVMe, boot Pi 5.
 2. Enable **Celestron AUX** driver in Ekos (see `config/indi-profile.md`).
 3. Install Starwatch:
