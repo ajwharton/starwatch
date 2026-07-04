@@ -6,7 +6,7 @@ Your order is well-matched to this project:
 
 - **Pi 5 16GB** — headroom for INDI/Ekos, Starwatch API, plate solving, and light inference
 - **1TB NVMe 2230** — fast boot, local image storage, optional Jellyfin for TV slideshow
-- **GeeekPi metal case** — thermal stability for continuous or outdoor-adjacent use
+- **GeeekPi metal case** — includes **M.2 HAT+** + active cooler; fits **2230/2242** NVMe (Crucial P310 2230 ✓)
 
 ## Telescope Connection
 

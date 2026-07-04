@@ -14,10 +14,9 @@ Work through this in order when the Amazon order lands. Check boxes as you go.
 
 ## 1. Assemble the Pi Rig
 
-- [ ] Seat Crucial P310 2230 on NVMe HAT (one screw, gentle pressure until click)
-- [ ] Mount Pi 5 board onto HAT / case standoffs
-- [ ] Attach active cooler per GeeekPi instructions
-- [ ] Close metal case; verify NVMe not obstructing airflow
+- [ ] GeeekPi case kit includes **M.2 HAT+** + active cooler — no separate HAT needed
+- [ ] Stack: Pi 5 → M.2 HAT+ (from kit) → seat Crucial P310 **2230** (one screw) → active cooler → metal case
+- [ ] Close case; verify SSD and cooler have airflow (case is designed for this stack)
 - [ ] **Do not power on** until assembly is complete
 
 ---
