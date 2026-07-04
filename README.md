@@ -29,7 +29,7 @@ Starwatch runs on a Raspberry Pi 5 (StellarMate OS recommended) connected via US
 | Crucial P310 1TB NVMe 2230 | Boot + image storage |
 | GeeekPi metal case + cooler | Outdoor-adjacent deployment |
 
-Connect Pi to the **bottom USB port** of the NexStar hand controller. Power Pi from scope battery or shared 12V supply.
+Connect Pi to the **bottom USB port** of the NexStar+ hand controller ([Evolution 9.25 guide](docs/evolution-925.md)). Power Pi from its own 27W supply; scope uses built-in battery.
 
 ## Quick Start (development — no hardware)
 

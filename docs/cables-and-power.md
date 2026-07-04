@@ -1,6 +1,6 @@
 # Cables & Power — Shopping Guide
 
-Parts to have on hand before first light. **Send a photo of the hand controller bottom port** to confirm the connector — almost certainly **Mini-USB**, but we'll verify.
+Parts to have on hand before first light. Scope: [NexStar Evolution 9.25 (12092)](evolution-925.md) — **does not include a PC USB cable**. **Send a photo of the hand controller bottom port** to confirm Mini-USB before ordering.
 
 ---
 
