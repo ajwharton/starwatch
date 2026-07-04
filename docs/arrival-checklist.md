@@ -132,7 +132,7 @@ curl -H "X-API-Key: YOUR_KEY" http://starwatch-pi.local:8787/status
 
 Goal: processed images on the Samsung TV without manual copying.
 
-TV is on the network at **192.168.100.6** (control, when on) and **192.168.100.70** (media/DLNA).
+Samsung **QN65S95FAFXZA** (65" OLED, per TV API) on **192.168.100.6** (control) and **192.168.100.70** (media/DLNA).
 
 - [ ] Enable SMB or Jellyfin on Pi (1TB NVMe has room)
 - [ ] Point TV at `//starwatch-pi/captures` via Source → Media Server (use **.70** for browse)

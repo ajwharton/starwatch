@@ -1,4 +1,19 @@
-# TV Setup — Samsung QN83S95F
+# TV Setup — Samsung QN65S95FAFXZA
+
+## Device identity (from TV API)
+
+Source: `GET http://192.168.100.6:8001/api/v2/` (authoritative)
+
+| Field | Value |
+|-------|-------|
+| Model | **QN65S95FAFXZA** |
+| Name | 65" OLED |
+| Internal model | `25_RSM_QD` |
+| Type | Samsung SmartTV |
+| OS | Tizen |
+| Resolution | 3840×2160 |
+| DUID | `uuid:b90ea709-f847-4969-877f-8fa2a85b4b8f` |
+| WiFi MAC | `38:8C:EF:FA:14:2A` |
 
 ## Identified addresses (TV on — 2026-07-04)
 
@@ -17,11 +32,8 @@ Two separate Samsung interfaces — not a stale lease. When the TV is **off**, `
 | API | `http://192.168.100.6:8001/api/v2/` |
 | OS | Tizen, PowerState `on` |
 | Network | WiFi (`networkType: wireless`) |
-| DUID | `uuid:b90ea709-f847-4969-877f-8fa2a85b4b8f` |
 
 Samsung REST API responds here — remote control, app launch, power state. Use **.6** for agent automation.
-
-> API `modelName` reports `QN65S95FAFXZA` (Samsung quirk); physical unit is **QN83S95F** per owner.
 
 ### 192.168.100.70 — data / media (secondary)
 
@@ -51,11 +63,12 @@ Browse astro images captured by Starwatch from the living room TV without manual
 ## Starwatch integration checklist
 
 - [x] Rescan with TV on — roles confirmed
+- [x] Model identified from TV API — QN65S95FAFXZA
 - [ ] Stand up SMB on Pi: `//starwatch-pi/captures`
 - [ ] Add share on TV: Source → Media Server / PC
-- [ ] Drop test JPEG; verify Gallery / slideshow on 83" panel
+- [ ] Drop test JPEG; verify Gallery / slideshow
 - [ ] (Optional) Jellyfin server + Samsung TV app
-- [ ] (Optional) Wire `StarwatchAgentClient` to TV REST for "show tonight's captures"
+- [ ] (Optional) Wire agent to TV REST at `.6:8001` for "show tonight's captures"
 
 ---
 
@@ -63,7 +76,7 @@ Browse astro images captured by Starwatch from the living room TV without manual
 
 | Field | Value |
 |-------|-------|
-| TV model | Samsung QN83S95F (S95F OLED, 83") |
+| TV model | Samsung QN65S95FAFXZA (65" OLED, S95F) |
 | Control IP | `192.168.100.6` (`Samsung.local`) |
 | Data IP | `192.168.100.70` |
 | Home subnet | `192.168.100.0/24` |
