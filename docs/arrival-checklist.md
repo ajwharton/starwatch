@@ -52,19 +52,28 @@ You need **two** power paths. Plan both before first light.
 
 ---
 
-## 3. Flash & First Boot (StellarMate OS)
+## 3. Flash & First Boot (StellarMate OS) — **Andrew**
 
 - [ ] Download [StellarMate OS](https://stellarmate.com/) image (Pi 5 / NVMe variant)
 - [ ] Flash to NVMe via USB adapter on Mac ([Raspberry Pi Imager](https://www.raspberrypi.com/software/) or `dd`)
-- [ ] Pre-configure WiFi + SSH in imager advanced options
+- [ ] Pre-configure WiFi + SSH + hostname (`starwatch-pi`) in imager advanced options
 - [ ] Insert NVMe, power Pi, wait for boot (~2 min first time)
-- [ ] SSH in: `ssh pi@<hostname>.local` (or IP from router)
-- [ ] Run `sudo raspi-config` → confirm NVMe boot, expand filesystem if needed
-- [ ] `sudo apt update && sudo apt upgrade -y`
+- [ ] Confirm Pi on network (`192.168.100.x` or `starwatch-pi.local`)
+- [ ] Reply **"ready for setup"** with IP/hostname + SSH access → **Grok configures the rest**
+
+See [`docs/handoff.md`](handoff.md) for the full split.
 
 ---
 
-## 4. Connect the Telescope
+## 4. Grok configures (after handoff)
+
+- [ ] OS updates, Starwatch install, INDI/Ekos profile, systemd, firewall
+- [ ] Smoke test API from Mac
+- [ ] *Andrew does not need to run these steps manually*
+
+---
+
+## 5. Connect the Telescope
 
 - [ ] Mount scope, power scope on, complete normal power-up / alignment on hand controller first
 - [ ] USB: Pi → **bottom** of NexStar hand controller
@@ -73,29 +82,6 @@ You need **two** power paths. Plan both before first light.
 - [ ] Test slew in Ekos GUI before trusting agents
 
 See `config/indi-profile.md` for Ekos settings.
-
----
-
-## 5. Install Starwatch
-
-```bash
-git clone https://github.com/ajwharton/starwatch.git
-cd starwatch
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -e ".[indi]"
-cp .env.example .env
-```
-
-- [ ] Edit `.env`: `STARWATCH_MODE=indi`, set `STARWATCH_API_KEY` (long random string)
-- [ ] Enable systemd service — see `docs/setup-pi.md`
-- [ ] `sudo ufw allow from 192.168.0.0/16 to any port 8787` (adjust subnet)
-- [ ] From Mac indoors:
-
-```bash
-curl http://starwatch-pi.local:8787/health
-curl -H "X-API-Key: YOUR_KEY" http://starwatch-pi.local:8787/status
-```
 
 ---
 
@@ -109,7 +95,7 @@ curl -H "X-API-Key: YOUR_KEY" http://starwatch-pi.local:8787/status
 
 ---
 
-## 7. Network & WiFi
+## 7. Network & WiFi (Grok verifies)
 
 - [ ] Pi on 5 GHz WiFi if router supports it (less interference than 2.4)
 - [ ] Static DHCP lease reserved

@@ -1,6 +1,8 @@
 # Pi Setup Guide
 
-Run when your Pi 5 kit arrives. Reply "ready for setup" for step-by-step first-boot help.
+**Handoff model:** Andrew flashes OS and gets the Pi on the network; Grok SSHes in and runs this guide. See [`handoff.md`](handoff.md).
+
+Reply **"ready for setup"** when the Pi is online and SSH is reachable.
 
 ## 1. Assemble Hardware
 
