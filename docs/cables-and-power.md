@@ -105,10 +105,10 @@ Share the scope's **12V** astro battery:
 
 | Item | Qty | Have? |
 |------|-----|-------|
-| USB-A to Mini-USB cable, 1–3 ft, data-rated | 1 | ☐ |
-| Spare same cable (backup) | 1 | ☐ optional |
-| 27W USB-C PD PSU (if not in kit) | 1 | ☐ |
-| USB NVMe enclosure (flash SSD from Mac) | 1 | ☐ one-time |
+| USB-A to Mini-USB cable, 1–3 ft, data-rated | 1 | ☑ |
+| 27W USB-C PD PSU | 1 | ☑ (in RasTech kit) |
+| USB NVMe enclosure (flash SSD from Mac) | 1 | ☑ |
+| Spare Mini-USB cable (backup) | 1 | ☐ optional |
 | Short outdoor Ethernet (WiFi backup) | 1 | ☐ optional |
 
 ---

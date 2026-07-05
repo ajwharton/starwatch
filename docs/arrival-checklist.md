@@ -5,7 +5,7 @@ Work through this in order when the Amazon order lands. Check boxes as you go.
 ## Before You Unbox
 
 - [ ] Clear a bench with good light — static-sensitive board
-- [ ] Have on hand: Phillips screwdriver (case), USB-C PD 27W supply (kit or case)
+- [x] Have on hand: Phillips screwdriver (case), 27W USB-C PD (in kit), USB-A→Mini-USB, NVMe enclosure
 - [ ] Confirm hand controller **bottom USB port** (not phone dock on top)
 - [ ] Pick a hostname now: e.g. `starwatch-pi` or `stellarmate` (used in agent URLs)
 - [ ] Reserve a static DHCP lease on your router for the Pi (MAC address after first boot)
