@@ -46,6 +46,8 @@ From manual “What’s in the box”:
 
 ## Phase 2 — power & battery
 
+**Can't find the charger?** See what it looks like: [`images/ac-adapter-2amp-celestron-18778.jpg`](images/ac-adapter-2amp-celestron-18778.jpg) (Celestron model **18778**, 12V 2A, black brick + snap-on US/EU/UK/AU plugs + barrel cable).
+
 Manual battery rules:
 
 - [ ] **Charge to full** on first receipt (included 12V AC adapter).
