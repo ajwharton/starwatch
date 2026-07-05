@@ -5,6 +5,8 @@
 
 This scope is a **strong match** for the Starwatch + Pi + INDI plan.
 
+**Setup walkthrough:** [`celestron/SETUP-GUIDE.md`](celestron/SETUP-GUIDE.md) · **Firmware:** [`celestron/FIRMWARE.md`](celestron/FIRMWARE.md) · **PDFs:** [`celestron/manuals/`](celestron/manuals/)
+
 ---
 
 ## What the telescope already includes

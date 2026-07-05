@@ -31,6 +31,18 @@ Starwatch runs on a Raspberry Pi 5 (StellarMate OS recommended) connected via US
 
 Connect Pi to the **bottom USB port** of the NexStar+ hand controller ([Evolution 9.25 guide](docs/evolution-925.md)). Power Pi from its own 27W supply; scope uses built-in battery.
 
+## Telescope setup (scope first, Pi later)
+
+**Start here if the scope is still in the box:** [`docs/celestron/SETUP-GUIDE.md`](docs/celestron/SETUP-GUIDE.md)
+
+| Step | Guide |
+|------|--------|
+| Assembly → charge → first alignment | [SETUP-GUIDE.md](docs/celestron/SETUP-GUIDE.md) |
+| CFM firmware update from Mac (**before Pi**) | [FIRMWARE.md](docs/celestron/FIRMWARE.md) |
+| Pi + INDI + agents | [STARWATCH-INTEGRATION.md](docs/celestron/STARWATCH-INTEGRATION.md) |
+| 6D Mark II imaging stack | [IMAGING.md](docs/celestron/IMAGING.md) |
+| Official PDFs | [docs/celestron/manuals/](docs/celestron/manuals/) |
+
 ## Quick Start (development — no hardware)
 
 ```bash
@@ -51,7 +63,8 @@ curl http://localhost:8787/health
 
 ## Pi Deployment (when hardware arrives)
 
-**Start here:** [`docs/arrival-checklist.md`](docs/arrival-checklist.md) — assembly, power, first boot.  
+**Scope (do first):** [`docs/celestron/SETUP-GUIDE.md`](docs/celestron/SETUP-GUIDE.md) — assemble, firmware, SkyAlign.  
+**Pi arrival:** [`docs/arrival-checklist.md`](docs/arrival-checklist.md) — flash, power, first boot.  
 **After flash:** [`docs/handoff.md`](docs/handoff.md) — you get it online, Grok configures the rest.
 
 1. Flash **StellarMate OS** to NVMe, boot Pi 5.

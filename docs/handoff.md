@@ -2,6 +2,8 @@
 
 When the Pi 5 kit arrives, Andrew handles hardware + OS; Grok handles everything after the Pi is on the network.
 
+**Before Pi:** Complete scope assembly, [CFM firmware](../celestron/FIRMWARE.md), and at least one SkyAlign session per [`celestron/SETUP-GUIDE.md`](../celestron/SETUP-GUIDE.md).
+
 ## Andrew does
 
 - [ ] Assemble Pi 5 + NVMe + case (see `arrival-checklist.md` §1–2)

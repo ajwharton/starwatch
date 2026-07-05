@@ -2,6 +2,24 @@
 
 Work through this in order when the Amazon order lands. Check boxes as you go.
 
+## 0. Scope setup (do before or in parallel with Pi)
+
+If the Evolution 9.25 is still in the box, do this **first** — Pi/INDI assumes a working, aligned scope.
+
+→ **[`docs/celestron/SETUP-GUIDE.md`](celestron/SETUP-GUIDE.md)** — full checklist (assembly → charge → align → first light)
+
+Minimum before Pi handoff:
+
+- [ ] Assemble tripod, mount, 9.25" OTA (see SETUP-GUIDE Phase 1)
+- [ ] Charge LiFePO4 battery to full (Phase 2)
+- [ ] **CFM firmware update from Mac** — [`celestron/FIRMWARE.md`](celestron/FIRMWARE.md) (Phase 4)
+- [ ] SkyAlign on hand control — visual first light (Phase 5)
+- [ ] USB-A→Mini-USB cable tested Mac ↔ hand paddle (same cable as Pi later)
+
+Official manuals: [`docs/celestron/manuals/`](celestron/manuals/)
+
+---
+
 ## Before You Unbox
 
 - [ ] Clear a bench with good light — static-sensitive board

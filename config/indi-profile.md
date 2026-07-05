@@ -2,10 +2,12 @@
 
 Use this profile once StellarMate OS (or Ubuntu + INDI) is running on the Pi.
 
+**Prerequisites:** Scope assembled, aligned at least once, and [**CFM firmware updated**](../docs/celestron/FIRMWARE.md) from your Mac. See [Starwatch integration](../docs/celestron/STARWATCH-INTEGRATION.md).
+
 ## Connection
 
-1. USB cable from Pi to **bottom port** of the NexStar hand controller (not the top phone dock).
-2. Power the Pi from the scope's internal battery or a shared 12V astro power station.
+1. USB cable from Pi to **bottom port** of the NexStar hand controller (not the mount 5V phone port).
+2. Power the Pi from its **27W USB-C PD** supply (or later, a rated 12V→5V buck from shared astro power).
 3. Start `indiserver` with the Celestron AUX driver:
 
 ```bash
