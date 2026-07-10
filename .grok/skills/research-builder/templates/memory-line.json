@@ -1,0 +1,9 @@
+{
+  "ts": "ISO-8601",
+  "track": "rl-small|kernels|equities",
+  "headline": "string",
+  "top_actions": ["string"],
+  "experiments": ["id"],
+  "sources": ["url"],
+  "beliefs": {"before": null, "after": "string"}
+}

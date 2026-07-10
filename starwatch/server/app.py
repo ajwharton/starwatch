@@ -65,6 +65,19 @@ def get_settings() -> Settings:
     return _settings
 
 
+def _run_action(fn, *args, **kwargs):
+    """Run telescope action; map RuntimeError to appropriate HTTP status."""
+    try:
+        return fn(*args, **kwargs)
+    except RuntimeError as e:
+        msg = str(e)
+        # Client-side precondition failures
+        if "parked" in msg.lower() or "not connected" in msg.lower():
+            raise HTTPException(status_code=400, detail=msg) from e
+        # Mount/INDI not ready
+        raise HTTPException(status_code=503, detail=msg) from e
+
+
 def _verify_api_key(
     api_key: Annotated[str | None, Security(_api_key_header)],
     settings: Annotated[Settings, Depends(get_settings)],
@@ -127,7 +140,7 @@ def slew(
     ctrl: Annotated[TelescopeController, Depends(get_controller)],
 ) -> ActionResponse:
     try:
-        coord = ctrl.slew_to_target(req.target, req.dec)
+        coord = _run_action(ctrl.slew_to_target, req.target, req.dec)
         return ActionResponse(
             ok=True,
             message=f"Slewing to {req.target}",
@@ -144,7 +157,7 @@ def slew_coords(
     ctrl: Annotated[TelescopeController, Depends(get_controller)],
 ) -> ActionResponse:
     try:
-        coord = ctrl.slew_to_coords(req.ra, req.dec)
+        coord = _run_action(ctrl.slew_to_coords, req.ra, req.dec)
         return ActionResponse(
             ok=True,
             message="Slewing to coordinates",
@@ -160,25 +173,25 @@ def tracking(
     req: TrackingRequest,
     ctrl: Annotated[TelescopeController, Depends(get_controller)],
 ) -> ActionResponse:
-    ctrl.set_tracking(req.mode)
+    _run_action(ctrl.set_tracking, req.mode)
     return ActionResponse(ok=True, message=f"Tracking set to {req.mode.value}")
 
 
 @app.post("/park", response_model=ActionResponse, dependencies=[Depends(_verify_api_key)])
 def park(ctrl: Annotated[TelescopeController, Depends(get_controller)]) -> ActionResponse:
-    ctrl.park()
+    _run_action(ctrl.park)
     return ActionResponse(ok=True, message="Parking telescope")
 
 
 @app.post("/unpark", response_model=ActionResponse, dependencies=[Depends(_verify_api_key)])
 def unpark(ctrl: Annotated[TelescopeController, Depends(get_controller)]) -> ActionResponse:
-    ctrl.unpark()
+    _run_action(ctrl.unpark)
     return ActionResponse(ok=True, message="Unparking telescope")
 
 
 @app.post("/abort", response_model=ActionResponse, dependencies=[Depends(_verify_api_key)])
 def abort(ctrl: Annotated[TelescopeController, Depends(get_controller)]) -> ActionResponse:
-    ctrl.abort()
+    _run_action(ctrl.abort)
     return ActionResponse(ok=True, message="Slew aborted")
 
 

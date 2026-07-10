@@ -35,10 +35,20 @@ Mac/DGX agents  ──WiFi──►  Pi 5 (Starwatch :8787)
 
 ### INDI on Pi (Grok configures)
 
-- Driver: **`indi_celestron_aux`**
-- Serial: `/dev/ttyACM0` typical after USB connect
-- Baud: **115200**
-- Ekos profile: see [`config/indi-profile.md`](../../config/indi-profile.md)
+**Working path (HC Mini-USB / NexStar PC port) — verified 2026-07-09:**
+
+| Setting | Value |
+|---------|--------|
+| Driver | **`indi_celestron_gps`** (NexStar serial protocol) |
+| Device name | **Celestron GPS** |
+| Serial | **`/dev/ttyUSB0`** common (Prolific PL2303 bridge); sometimes `ttyACM*` |
+| Baud | **9600** |
+
+- **`indi_celestron_aux` @ 115200** targets the AUX motor bus — it did **not** work over the hand-control PC USB port (timeouts to ALT/AZM). Do not force AUX on the HC Mini-USB cable.
+- After reboot: set port/baud and CONNECT (helper on Pi: `~/starwatch/scripts/connect-mount.sh` if installed).
+- Ekos profile: see [`config/indi-profile.md`](../../config/indi-profile.md) — update to **Celestron GPS** / 9600 for this USB path.
+
+### Alignment requirement
 
 ### Alignment requirement
 
