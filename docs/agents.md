@@ -1,3 +1,5 @@
+> Pull-on-miss detail. Auto card: repo-root `AGENTS.md`. Thin harness: `~/.grok/docs/thin-harness.md`.
+
 # Agent Integration
 
 ## Design
