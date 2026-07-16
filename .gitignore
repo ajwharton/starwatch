@@ -31,4 +31,5 @@ htmlcov/
 captures/
 
 # Logs
-*.log
+*.log.api_key
+*.bak
